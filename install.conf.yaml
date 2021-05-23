@@ -1,5 +1,11 @@
 
+- defaults:
+    link:
+      create: true
+      relink: true
 
 - link:
+    ~/.zshrc: zsh/zshrc
 
-
+# Clean symlinks which have moved
+- clean: ['~', '~/.config/']
