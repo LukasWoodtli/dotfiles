@@ -6,6 +6,7 @@
 
 - link:
     ~/.zshrc: zsh/zshrc
+    ~/.commonrc: shells/.commonrc
 
 # Clean symlinks which have moved
 - clean: ['~', '~/.config/']

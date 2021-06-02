@@ -1,0 +1,34 @@
+# Common settings used in different shells
+
+# More colors in terminal
+export TERM="xterm-256color"
+
+# similar to open in OS X
+alias op='xdg-open &>/dev/null'
+
+# Default editor
+export EDITOR=vim
+
+# dec <-> hex conversions
+function dec2hex() {
+	echo "obase=16; $1" | bc
+}
+
+function hex2dec() {
+	echo "ibase=16; $1" | bc
+}
+
+# check if running in docker
+function running_in_docker() {
+	if ! grep -qa docker /proc/1/cgroup
+	then
+		return 1
+	else
+		return 0
+	fi
+}
+
+# Fix for 'dead keys' in CLion, IntelliJ...
+# See: https://youtrack.jetbrains.com/issue/IDEA-78860
+export IBUS_ENABLE_SYNC_MODE=1
+
