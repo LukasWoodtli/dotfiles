@@ -9,18 +9,18 @@ git submodule update --init --recursive && \
 ```
 
 
+# Update
+
 ```sh
-# update
 cd ~/.dotfiles && \
 git pull && \
 git submodule update --init --recursive && \
 ./install
 ```
 
-# Todo 
+
+# Todo
 
 - Add:
-  - git
-  - vim
-  - bash?
+  - tmux
 - make old repos on github readonly

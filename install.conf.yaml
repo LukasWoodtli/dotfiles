@@ -9,6 +9,7 @@
     ~/.commonrc: shells/.commonrc
     ~/.gitconfig: git/.gitconfig
     ~/.global_gitignore: git/.global_gitignore
+    ~/.vimrc: vim/vimrc
 
 # Clean symlinks which have moved
 - clean: ['~', '~/.config/']
