@@ -7,6 +7,8 @@
 - link:
     ~/.zshrc: zsh/zshrc
     ~/.commonrc: shells/.commonrc
+    ~/.gitconfig: git/.gitconfig
+    ~/.global_gitignore: git/.global_gitignore
 
 # Clean symlinks which have moved
 - clean: ['~', '~/.config/']
