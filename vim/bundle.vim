@@ -27,4 +27,5 @@ Plugin 'editorconfig/editorconfig-vim'
 Plugin 'ShowTrailingWhitespace'
 
 call vundle#end()
+filetype plugin indent on
 

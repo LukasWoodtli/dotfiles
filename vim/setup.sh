@@ -3,4 +3,7 @@
 set -e
 set -u
 
-vim +PluginInstall +qall
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VUNDLE_RC_FILE="${BASEDIR}/bundle.vim"
+
+vim -u "${VUNDLE_RC_FILE}" +PluginInstall +qall
