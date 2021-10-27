@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
+set rtp+=~/.dotfiles/bundle/Vundle.vim/vim-colors-solarized
 
 Plugin 'scrooloose/nerdtree'
 
