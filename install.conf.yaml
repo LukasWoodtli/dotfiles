@@ -10,6 +10,7 @@
     ~/.gitconfig: git/.gitconfig
     ~/.global_gitignore: git/.global_gitignore
     ~/.vimrc: vim/vimrc
+    ~/.tmux.conf: tmux/tmux.conf
 
 # Clean symlinks which have moved
 - clean: ['~', '~/.config/']

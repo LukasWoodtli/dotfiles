@@ -18,9 +18,3 @@ git submodule update --init --recursive && \
 ./install
 ```
 
-
-# Todo
-
-- Add:
-  - tmux
-- make old repos on github readonly
