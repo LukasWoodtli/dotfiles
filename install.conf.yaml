@@ -6,6 +6,7 @@
 
 - link:
     ~/.zshrc: zsh/zshrc
+    ~/.p10k.zsh: zsh/p10k.zsh
     ~/.commonrc: shells/.commonrc
     ~/.gitconfig: git/.gitconfig
     ~/.global_gitignore: git/.global_gitignore
