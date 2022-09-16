@@ -79,6 +79,7 @@
 
 [init]
 	templateDir = ~/git-templates
+	defaultBranch = main
 
 [difftool]
 	prompt = false
