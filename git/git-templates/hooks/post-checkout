@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# parameters:
+# - ref of the previous HEAD
+# - ref of the new HEAD (which may or may not have changed)
+# - flag: branch checkout (changing branches, flag=1) or file checkout (retrieving a file from the index, flag=0)
+
+# after git clone, unless the --no-checkout (-n) option is used:
+# - first parameter: null-ref
+# - second parameter: ref of the new HEAD
+# - the flag is always 1
+
+#echo "arguments " $@
+
+
+thisScriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" > /dev/null && pwd )"
+
+if [ $3 == 1 ]
+then
+
+	if [ ! -f .editorconfig ]
+	then
+		cp "$thisScriptDir/editorconfig" .editorconfig
+	fi
+
+	# Print git user info
+	userName=`git config user.name`
+	userEmail=`git config user.email`
+	printf "Git user: %s <%s>\n" "$userName" "$userEmail"
+fi
+
+

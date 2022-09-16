@@ -78,7 +78,7 @@
 	cmd = kdiff3 $LOCAL $BASE $REMOTE -o $MERGED
 
 [init]
-	templateDir = ~/git-templates
+	templateDir = ~/.dotfiles/git/git-templates/
 	defaultBranch = main
 
 [difftool]
