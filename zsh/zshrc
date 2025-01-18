@@ -32,6 +32,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k" # set by `omz`
 plugins=(
   git
   dotenv
+  z
 )
 
 source "$ZSH/oh-my-zsh.sh"
