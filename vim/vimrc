@@ -38,3 +38,5 @@ highlight ShowTrailingWhitespace ctermbg=Red guibg=Red
 
 :set mouse=a
 
+" for macOS: https://stackoverflow.com/a/3534090
+set backspace=indent,eol,start
