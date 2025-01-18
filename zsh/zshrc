@@ -80,3 +80,27 @@ fi
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
 
+
+# nix
+export PATH=$PATH:/nix/var/nix/profiles/default/bin/
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    # >>> conda initialize >>>
+    # !! Contents within this block are managed by 'conda init' !!
+    __conda_setup="$('/Users/lukaswoodtli/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/Users/lukaswoodtli/anaconda3/etc/profile.d/conda.sh" ]; then
+            . "/Users/lukaswoodtli/anaconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/Users/lukaswoodtli/anaconda3/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<<
+
+    # Created by `pipx` on 2025-01-17 07:03:08
+    export PATH="$PATH:/Users/lukaswoodtli/.local/bin"
+
+fi
