@@ -1,0 +1,7 @@
+[diff]
+	prompt = false
+	tool = vscode
+
+[merge]
+	prompt = false
+	tool = vscode-merge

@@ -31,12 +31,22 @@
 	prompt = false
 	tool = meld
 
-[difftool]
+[merge]
 	prompt = false
-	tool = meld
+	tool = mergemeld
+	conflictstyle = diff3
+	log = yes
+	renamelimit = 9999
+
+# Overwrite diff and merge on macOS
+[includeIf "gitdir:/Users/"]
+	path = "~/.dotfiles/git/gitconfig_macos"
 
 [difftool "meld"]
 	cmd = meld \"$LOCAL\" \"$REMOTE\"
+
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
 
 [difftool "diffmerge"]
 	cmd = diffmerge \"$LOCAL\" \"$REMOTE\"
@@ -64,18 +74,14 @@
 	trustExitCode = false
 	keepBackup = false
 
-[merge]
-	prompt = false
-	tool = mergemeld
-	conflictstyle = diff3
-	log = yes
-	renamelimit = 9999
-
 [mergetool "mergemeld"]
 	  cmd = meld --auto-merge --output \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" --diff \"$BASE\" \"$LOCAL\" --diff \"$BASE\" \"$REMOTE\"
 
 [mergetool "kdiff3"]
 	cmd = kdiff3 $LOCAL $BASE $REMOTE -o $MERGED
+
+[mergetool "vscode-merge"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
 
 [init]
 	templateDir = ~/.dotfiles/git/git-templates/
