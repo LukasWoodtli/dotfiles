@@ -1,11 +1,15 @@
 
 source ~/.dotfiles/vim/bundle.vim
 
+" not compatible with 'vi'
+set nocompatible
+
 filetype plugin indent on
 
 " Solarized
 syntax enable
 set background=dark
+let g:solarized_termcolors=256
 colorscheme solarized
 
 
@@ -40,3 +44,20 @@ highlight ShowTrailingWhitespace ctermbg=Red guibg=Red
 
 " for macOS: https://stackoverflow.com/a/3534090
 set backspace=indent,eol,start
+
+" Search recursivelly into subfolders
+set path+=**
+
+set wildmenu
+
+" Spell checking
+set spell spelllang=en_us
+hi clear SpellBad
+hi clear SpellCap
+hi clear SpellRare
+hi clear SpellLocal
+hi SpellBad cterm=underline
+hi SpellCap cterm=none
+hi SpellRare cterm=none
+hi SpellLocal cterm=none
+

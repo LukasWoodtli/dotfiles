@@ -32,6 +32,8 @@ ZSH_THEME="powerlevel10k/powerlevel10k" # set by `omz`
 plugins=(
   git
   dotenv
+  poetry
+  virtualenv
   z
 )
 
@@ -40,6 +42,8 @@ source "$ZSH/oh-my-zsh.sh"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# git
+alias grtt='cd "$(git rev-parse --show-superproject-working-tree || echo .)"'
 
 # macOS
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -54,6 +58,15 @@ fi
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# ctr-t for fzf
+export FZF_CTRL_T_OPTS=" \
+  --preview 'if [ -d "{}" ]; then tree -C {}; else; bat -n --color=always {};fi' \
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# alt-c for fzf
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"
+
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
@@ -75,32 +88,45 @@ then
 fi
 
 
+# MidnightCommander
+alias mc='source /usr/lib/mc/mc-wrapper.sh'
+
+
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
+# Created by `pipx` on 2024-10-14 11:57:40
+export PATH="$PATH:/home/lukas/.local/bin"
 
 # nix
 export PATH=$PATH:/nix/var/nix/profiles/default/bin/
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    # >>> conda initialize >>>
-    # !! Contents within this block are managed by 'conda init' !!
-    __conda_setup="$('/Users/lukaswoodtli/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-    if [ $? -eq 0 ]; then
-        eval "$__conda_setup"
-    else
-        if [ -f "/Users/lukaswoodtli/anaconda3/etc/profile.d/conda.sh" ]; then
-            . "/Users/lukaswoodtli/anaconda3/etc/profile.d/conda.sh"
-        else
-            export PATH="/Users/lukaswoodtli/anaconda3/bin:$PATH"
-        fi
-    fi
-    unset __conda_setup
-    # <<< conda initialize <<<
-
     # Created by `pipx` on 2025-01-17 07:03:08
     export PATH="$PATH:/Users/lukaswoodtli/.local/bin"
-
 fi
+
+# Gardena
+alias poe='poetry run poe'
+#alias bnw='~/.cache/pypoetry/virtualenvs/bnwcli-mkecf-Tn-py3.12/bin/python3 ~/.cache/pypoetry/virtualenvs/bnwcli-mkecf-Tn-py3.12/bin/bnw'
+# lb_sniffer Wireshark
+export PATH=${HOME}/.local/opt/wireshark-git/bin:$PATH
+
+# Zephyr west
+source ~/.dotfiles/zsh/_west
+
+# GW ID's
+export MY_HCGW_ID='0fa20327-8353-448d-a73c-d868f1cf8a7c'
+
+# Jetbrains tools
+function pycharm() { /home/lukas/.local/bin/pycharm $@ &> /dev/null & }
+function clion() { /home/lukas/.local/bin/clion $@ &> /dev/null & }
+function rustrover() { /home/lukas/.local/bin/rustrover $@ &> /dev/null & }
+function idea() { /home/lukas/.local/bin/idea $@ &> /dev/null & }
+
+# Workaround Kubuntu 24.04
+export XDG_DATA_DIRS="$XDG_DATA_DIRS:/var/lib/snapd/desktop/applications/"
+
